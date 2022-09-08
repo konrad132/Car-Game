@@ -1,0 +1,29 @@
+print('Car Game')
+
+command =""
+mileage = 0
+while command.lower() != 'quit':
+    command = input(' What do you want your car to do?')
+    if command.lower() == 'start':
+        print('Car has started.')
+    elif command.lower() == 'go':
+        print('You have moved 1 mile.')
+        mileage = mileage + 1
+    elif command.lower() == 'keep going':
+        print('You have moved 1 mile.')
+        mileage = mileage + 1
+    elif command.lower() == 'stop':
+        print(' You have stopped.')
+    elif command.lower() == 'quit':
+        print(f' Congrats you have traveled {mileage} miles.')
+        break
+    elif command.lower() == 'help':
+        print(''''
+        Start        - Starts your car
+        Go           - Moves your car 1 mile
+        Keep going   - Moves your car 1 mile
+        Stop         - Stops your car
+        Quit         - Shows you score and quits
+              ''')
+    else:
+        print('Command not understood try typing "Help" .')
