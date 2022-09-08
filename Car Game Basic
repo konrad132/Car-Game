@@ -1,29 +1,59 @@
+# Title
 print('Car Game')
 
+# Variables
 command =""
+started = False
 mileage = 0
-while command.lower() != 'quit':
-    command = input(' What do you want your car to do?')
-    if command.lower() == 'start':
-        print('Car has started.')
-    elif command.lower() == 'go':
-        print('You have moved 1 mile.')
-        mileage = mileage + 1
-    elif command.lower() == 'keep going':
-        print('You have moved 1 mile.')
-        mileage = mileage + 1
+
+while True:
+    command = input(' What do you want your car to do?')        
+            
+# START Command
+    if command.lower() == 'start':                              
+        if started:
+            print('Car is already started.')
+        else:
+            started = True
+            print('Car has started.')
+
+# GO Command
+    elif command.lower() == 'go':                               
+        if not started:
+            print('Start the car.')
+        else:
+            print('You have moved 1 mile.')
+            mileage = mileage + 1
+            
+# KEEP GOING Command
+    elif command.lower() == 'keep going':                       
+        if not started:
+            print('Start the car.')
+        else:
+            print('You have moved 1 mile.')
+            mileage = mileage + 1
+
+# STOP Command
     elif command.lower() == 'stop':
-        print(' You have stopped.')
+        if not started:
+            print(' You are already stopped.')
+        else:
+            print(' You have stopped.')
+
+# QUIT Command
     elif command.lower() == 'quit':
         print(f' Congrats you have traveled {mileage} miles.')
         break
+
+# HELP Command
     elif command.lower() == 'help':
         print(''''
-        Start        - Starts your car
-        Go           - Moves your car 1 mile
-        Keep going   - Moves your car 1 mile
-        Stop         - Stops your car
-        Quit         - Shows you score and quits
+Start        - Starts your car
+Go           - Moves your car 1 mile
+Keep going   - Moves your car 1 mile
+Stop         - Stops your car
+Quit         - Shows you score and quits
               ''')
+# HELP Prompt
     else:
         print('Command not understood try typing "Help" .')
